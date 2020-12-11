@@ -33,7 +33,7 @@ class TestReport:
                                            "email": "", "orderid": ""})
         assert postsearchci['code'] == '200'
 
-    @pytest.mark.repeat(50)
+    @pytest.mark.repeat(5)
     def test_resource_dir_add_batch(self):
         test = DmpLogin()
         postsearchci = test.post_api("/catalogController/addCatalogInfo",

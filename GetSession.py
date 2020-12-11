@@ -56,7 +56,12 @@ class DmpLogin(object):
         # 登录页面url，改成目标系统登录页面
         url = self.url + "/dmp-datafactory/#"
         util.info(url)
-        self.browser.get(url)
+
+        try:
+            self.browser.get(url)
+        except Exception as e:
+            util.info(e)
+            self.browser.close()
         # 显性等待，直到用户名控件加载出来才进行下一步
         WebDriverWait(self.browser, 20, 0.5).until(lambda x: x.find_element_by_id("j_username"))
         # WebDriverWait(driver, 10).until(lambda x: x.find_element_by_id("someId"))
