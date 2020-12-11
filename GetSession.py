@@ -49,10 +49,10 @@ class DmpLogin(object):
     # 登录系统，具体到自己系统时需要自行修改
     def login_system(self):
         # 登录用户名密码，改成目标系统用户名密码
-        username = "wangtaihe"
-        password = "admin@123"
-        # username = "scott"
-        # password = "aaaaaa"
+        # username = "wangtaihe"
+        # password = "admin@123"
+        username = "scott"
+        password = "aaaaaa"
         # 登录页面url，改成目标系统登录页面
         url = self.url + "/dmp-datafactory/#"
         util.info(url)
