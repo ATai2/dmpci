@@ -10,6 +10,9 @@ from logging.handlers import TimedRotatingFileHandler
 
 from logging import handlers
 
+if not os.path.exists("logs"):
+    os.mkdir("logs")
+
 datefmt = '%Y-%m-%d %H:%M:%S'
 level = logging.DEBUG
 filename = './logs/default.log'
