@@ -10,38 +10,23 @@ from logging.handlers import TimedRotatingFileHandler
 
 from logging import handlers
 
-logger = logging.getLogger()
-# format = logging.Formatter('%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
-# rotahandler = handlers.RotatingFileHandler(os.path.join('root’, 'logs/my'), maxBytes=1024 * 1024 * 100)
-# rotahandler = handlers.TimedRotatingFileHandler(os.path.join('../logs.log'), when='D')
-# rotahandler.setLevel(logging.DEBUG)
-# rotahandler.setFormatter(format)
-
-file_handler = TimedRotatingFileHandler(filename='../logs', when="MIDNIGHT", interval=1, backupCount=30)
-# filename="mylog" suffix设置，会生成文件名为mylog.2020-02-25.log
-file_handler.suffix = "%Y-%m-%d.log"
-# extMatch是编译好正则表达式，用于匹配日志文件名后缀
-# 需要注意的是suffix和extMatch一定要匹配的上，如果不匹配，过期日志不会被删除。
-file_handler.extMatch = re.compile(r"^\d{4}-\d{2}-\d{2}.log$")
-# 定义日志输出格式
-file_handler.setFormatter(
-    logging.Formatter(
-        "[%(asctime)s] [%(process)d] [%(levelname)s] - %(module)s.%(funcName)s (%(filename)s:%(lineno)d) - %(message)s"
-    )
-)
-
-
-
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-console.setFormatter(format)
-
-logger.addHandler(file_handler)
-logger.addHandler(console)
+datefmt = '%Y-%m-%d %H:%M:%S'
+level = logging.DEBUG
+filename = './logs/default.log'
+format = '%(asctime)s [%(module)s] %(levelname)s [%(lineno)d] %(message)s'
+log = logging.getLogger(filename)
+format_str = logging.Formatter(format, datefmt)
+# backupCount 保存日志的数量，过期自动删除
+# when 按什么日期格式切分(这里方便测试使用的秒)
+th = handlers.TimedRotatingFileHandler(filename=filename, when='D', backupCount=3, encoding='utf-8')
+th.setFormatter(format_str)
+th.setLevel(logging.INFO)
+log.addHandler(th)
+log.setLevel(level)
 
 
 def info(msg):
-    logger.info(msg)
+    log.info(msg)
     print(msg)
 
 
@@ -58,7 +43,6 @@ def get_test_data(test_data_path):
             expected.append(td.get('expected', {}))
     parameters = zip(case, data, expected)
     return case, parameters
-
 
 # cases, parameters = get_test_data("../dmp/data/test_report.yml")
 # list_params = list(parameters)

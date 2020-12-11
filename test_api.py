@@ -4,7 +4,7 @@
 # datetime:2020/12/3 11:12
 # software: PyCharm
 
-from dmp.GetSession import DmpLogin
+from GetSession import DmpLogin
 
 
 # cases, list_params = util.get_test_data("data/test_setting.yml")

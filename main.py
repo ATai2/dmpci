@@ -40,8 +40,8 @@ if __name__ == '__main__':
             # pytest.main(["-v", "--html=../" + k + "report.html"])
             pytest.main(["test_setting.py", "-v", "--html=./" + k + "report.html"])
     else:
-        # pytest.main(["-v", "--html=./report.html"])
-        pytest.main(["test_setting.py", "-v", "--html=./report.html"])
+        pytest.main(["-v", "--html=./report.html"])
+        # pytest.main(["test_setting.py", "-v", "--html=./report.html"])
 
     # 2 并发执行
     # pytest.main(["-n 2","--html=./report.html"])

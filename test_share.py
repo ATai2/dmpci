@@ -4,7 +4,7 @@
 # datetime:2020/12/3 11:12
 # software: PyCharm
 
-from dmp.GetSession import DmpLogin
+from GetSession import DmpLogin
 import pytest
 
 
