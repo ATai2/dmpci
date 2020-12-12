@@ -16,7 +16,7 @@ import pytest
 class TestReport:
     res_dir_index = 0
 
-    @pytest.mark.repeat(5)
+    # @pytest.mark.repeat(5)
     def test_resource_dir_add(self):
         test = DmpLogin()
         getCatalogListData = test.post_api("/catalogController/getCatalogListData")
