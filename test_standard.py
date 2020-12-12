@@ -61,7 +61,7 @@ class TestReport:
 
     def test_lable_search_private_info_del(self):
         test = DmpLogin()
-        postsearch = test.get_api("/tagManagement/addTagInfo",
+        postsearch = test.post_api("/tagManagement/addTagInfo",
                                   {"searchContent": "ddtest", "page": 1, "size": 20})
         print(postsearch)
 

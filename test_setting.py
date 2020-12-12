@@ -14,7 +14,7 @@ import allure, pytest, os
 class TestReport:
     # @pytest.mark.parametrize("case,data,expected", list(list_params), ids=cases)
     @allure.feature('报错slaveServer信息')
-    def test_save_settingdata(self):
+    def test_save_slaveServer(self):
         test = DmpLogin()
         post = test.post_api(
             "/slaveServer/saveSlaveServer?name=kettle&hostName=127.0.0.1&port=8080&webAppName=&username=CeNTILgC6rOizgrFBjPCQQ%3D%3D&password=CeNTILgC6rOizgrFBjPCQQ%3D%3D&idSlave=&master=0",
