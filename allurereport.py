@@ -27,4 +27,5 @@ if __name__ == '__main__':
     config.url = "http://localhost:" +port
     print(config.url)
     DmpLogin.cookieStr = None
-    pytest.main(["-v", "--html=./report.html"])
+    pytest.main(["-v", '--alluredir', './temp'])
+    # pytest.main(["-v", "--html=./report.html"])
