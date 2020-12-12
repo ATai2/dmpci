@@ -3,7 +3,7 @@
 # author:wangtaihe
 # datetime:2020/12/3 15:05
 # software: PyCharm
-import os, pytest, sys
+import os, pytest, sys, time
 import Config as config
 from GetSession import DmpLogin
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
             config.url = "http://" + ip + ":" + dmplist[k]
             print(config.url)
             DmpLogin.cookieStr = None
-            pytest.main(["-v", "--html=../" + k + "report.html"])
+            pytest.main(["-v", "--html=../" + k + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "report.html"])
             # pytest.main(["test_setting.py", "-v", "--html=./" + k + "report.html"])
     else:
         pytest.main(["-v", "--html=./report.html"])
