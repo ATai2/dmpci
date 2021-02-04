@@ -5,5 +5,5 @@
 # software: PyCharm
 
 
-url = 'http://10.110.87.200:8085'
-# url = 'http://localhost:8085'
+# url = 'http://10.110.87.200:8085'
+url = 'http://localhost:8085'

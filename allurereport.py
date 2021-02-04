@@ -21,10 +21,10 @@ if __name__ == '__main__':
         arg1 = sys.argv[1]
         port = sys.argv[2]
 
-    if port==None:
-        port='8085'
+    if port == None:
+        port = '8085'
 
-    config.url = "http://localhost:" +port
+    config.url = "http://localhost:" + port
     print(config.url)
     DmpLogin.cookieStr = None
     pytest.main(["-v", '--alluredir', './temp'])
