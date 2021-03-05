@@ -17,11 +17,13 @@ import Config  as Config
 class DmpLogin(object):
     cookieStr = None
 
-    def __init__(self):
-        # self.url = 'http://10.110.87.202:8085'
-        self.url = Config.url
+    def __init__(self, url):
+        if url is None:
+            self.url = Config.url
+        else:
+            self.url = url
         # 启用无头模式，可选
-        if DmpLogin.cookieStr == None:
+        if DmpLogin.cookieStr is None:
             chrome_options = Options()
             chrome_options.add_argument('--headless')
             chrome_options.add_argument('--disable-gpu')
