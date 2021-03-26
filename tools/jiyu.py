@@ -31,8 +31,9 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect('10.110.87.202', 21883, 600)  # 600为keepalive的时间间隔
+client.connect('10.110.87.202', 1883, 600)  # 600为keepalive的时间间隔
+# client.connect('10.110.87.202', 21883, 600)  # 600为keepalive的时间间隔
 pay = '{"Device gg":[{"ts":%s,"values":{"temperature":"39488"}},{"ts":%s,"values":{"humidity":"1728"}}]}'% (int(time.time() * 1000), int(time.time() * 1000))
 print(pay)
-client.publish('gateway/5330/gg/report', payload=pay , qos=0)
+print(client.publish('gateway/5330/gg/report', payload=pay , qos=0))
 # client.loop_forever() # 保持连接
