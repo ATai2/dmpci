@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 # user = {"userName": "admin", "password": "admin"}
 
+# 前置机mock
 
 @app.route("/")
 def hello_world():
@@ -18,8 +19,6 @@ def nofile():
     rsp = make_response("{}")
     rsp.headers['Content-Type'] = 'text/plain'
     return rsp
-
-
 
 
 @app.route("/xccj/services/fileUpload", methods=["POST", "GET"])
